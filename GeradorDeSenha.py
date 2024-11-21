@@ -2,7 +2,7 @@ import random
 
 
 carac = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%()&1234567890'
-
+senhasSalvas = []
 
 def pegaQtdTam():
     
@@ -23,16 +23,23 @@ def geradorDeSenha(dados):
         for s in range(dados[1]):
             senha += random.choice(carac)
         listaSenhas.append(senha)
-    
-    return listaSenhas
+
+    mostraLista(listaSenhas)
 
 
+def mostraLista(listaSenhas):
+    for L in range(len(listaSenhas)):
+        print(f"{L+1} - {listaSenhas[L]}")
+    slc = int(input("Qual das senhas você quer salvar?"))
+    senhasSalvas.append(listaSenhas[slc-1])
+    print(f"Parabéns!!! Você salvou a senha {slc}")
+    print(senhasSalvas)
 
 print("Bem vindo ao gerador de senhas!!")
 dados = pegaQtdTam()
 print("Suas senhas estão sendo geradas!")
 listaDeSenhas = geradorDeSenha(dados)
-print(listaDeSenhas)
+
 
 
 
